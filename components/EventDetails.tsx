@@ -45,6 +45,7 @@ export default function EventDetails() {
   return (
     <section
       id="detalhes"
+      aria-label="Detalhes do Evento"
       className="py-24 md:py-36 bg-cream relative overflow-hidden"
     >
       {/* Corner botanical - right side */}

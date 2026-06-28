@@ -1,41 +1,45 @@
 import Image from "next/image";
 import AnimateIn from "./AnimateIn";
-import { FloralDivider } from "./BotanicalSVG";
+import { FloralDivider, LeafSprig, BranchCorner } from "./BotanicalSVG";
 
 const STORY = [
   {
-    year: "Março · 2019",
-    title: "O Primeiro Encontro",
-    text: "Uma festa de amigos em comum nos uniu. Ele chegou tarde, ela estava prestes a ir embora. O universo teve outros planos.",
-    img: "https://picsum.photos/seed/story1/600/400",
+    year: "07 · Maio · 2022",
+    title: "Primeiro Encontro",
+    subtitle: "(onde tudo começou):",
+    text: "Nos conhecemos através de um encontro inesperado de queridos amigos em comum. Em um despretensioso sábado a noite, no centro de São Paulo, aguardando na fila da entrada da Tokyo 011. Tudo começou com uma leve troca de olhares, depois muito papo e claro alguns drinks. Não vamos negar que o lugar ajudou, música alta, local cheio e iluminação baixa.. e nossos amigos?! haha a gente não soube muito deles naquele dia! Noite a dentro, números de telefones trocado e tudo realmente começou…",
+    img: "/images/primeiro_encontro.JPG",
     side: "right",
   },
   {
-    year: "Julho · 2020",
-    title: "Nossa Primeira Viagem",
-    text: "Florianópolis nos revelou que viajávamos bem juntos — e que queríamos continuar assim pelo resto das nossas vidas.",
-    img: "https://picsum.photos/seed/story2/600/400",
+    year: "28 · Agosto · 2022",
+    title: "Primeira viagem",
+    subtitle: "(de muitas..):",
+    text: "Nossa primeira viagem juntos foi mais como uma experiência. Primeira vez dormindo em um antigo trailer! Foi uma viagem curta e rápida, já que na época só tínhamos o final de semana para isso. Um final de semana de novas descobertas, apaixonante, calmo e ao mesmo tempo emocionante! A primeira de muitas… ",
+    img: "/images/primeira_viagem.JPG",
     side: "left",
   },
   {
-    year: "Janeiro · 2022",
-    title: "Compartilhando o Mesmo Lar",
-    text: "Demos o passo que confirmou o que já sabíamos: que o lugar mais bonito do mundo é qualquer lugar ao lado um do outro.",
-    img: "https://picsum.photos/seed/story3/600/400",
+    year: "15 · Novembro · 2023",
+    title: "Uma vida a dois",
+    subtitle: "(Compartilhando o Mesmo Lar):",
+    text: "Depois de um ano e meio de namoro e algumas conveniências, decidimos viver juntos! E nossa experiência até aqui tem sido de muito amor, zelo e cumplicidade. Claro, nem tudo são rosas.. desafios do dia a dia acontecem. A rotina, os problemas e o estresse as vezes pesam mas nossa escolha em ficar, em lutar, em continuar conquistando um ao outro é diária! E sim, é sempre melhor quando estamos juntos! Entre muitas responsabilidades e obrigações também encontramos tempo para um colo, um cafuné, um bilhetinho escondido, flores surpresa, passeios, pescaria, muita comidinha in e out e sempre muitas conversas aleatórias! E amor.. muito amor! ",
+    img: "/images/uma_vida_a_dois.JPG",
     side: "right",
+    imgSize: "w-3/4",
   },
   {
     year: "Novembro · 2024",
     title: "Ele Perguntou...",
     text: "No alto do Pão de Açúcar, com o Rio de Janeiro inteiro aos nossos pés e as mãos entrelaçadas, ela disse sim.",
-    img: "https://picsum.photos/seed/story4/600/400",
+    img: "/images/ele_perguntou.JPG",
     side: "left",
   },
 ];
 
 export default function OurStory() {
   return (
-    <section id="historia" className="py-24 md:py-36 bg-cream overflow-hidden">
+    <section id="historia" aria-label="Nossa História" className="py-24 md:py-36 bg-cream overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
@@ -59,42 +63,51 @@ export default function OurStory() {
             {STORY.map((item, i) => (
               <AnimateIn key={item.year} delay={i * 80}>
                 <div
-                  className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${
-                    item.side === "left" ? "md:[direction:rtl]" : ""
-                  }`}
+                  className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${item.side === "left" ? "md:[direction:rtl]" : ""
+                    }`}
                 >
                   {/* Text */}
                   <div className={item.side === "left" ? "md:[direction:ltr]" : ""}>
                     <span className="font-ui text-rose text-[10px] tracking-[0.3em] uppercase block mb-3">
                       {item.year}
                     </span>
-                    <h3 className="font-display text-brown text-2xl md:text-3xl italic font-light mb-4 leading-snug">
+                    <h3 className="font-display text-brown text-lg md:text-5xl italic font-light mb-4 leading-snug whitespace-nowrap">
                       {item.title}
                     </h3>
+                    <h4 className="font-display text-brown text-lg md:text-2xl italic font-light mb-4 leading-snug whitespace-nowrap">
+                      {item.subtitle}
+                    </h4>
                     <p className="font-body text-muted text-lg md:text-xl leading-relaxed max-w-[52ch]">
                       {item.text}
                     </p>
                   </div>
 
                   {/* Image */}
-                  <div className={`relative ${item.side === "left" ? "md:[direction:ltr]" : ""}`}>
-                    <div className="relative aspect-[4/3] overflow-hidden group">
-                      <Image
-                        src={item.img}
-                        alt={item.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        unoptimized
+                  <div className={`relative flex items-center justify-center py-6 ${item.side === "left" ? "md:[direction:ltr]" : ""}`}>
+                    {/* Botanical corner decorations */}
+                    <LeafSprig className="absolute top-4 right-4 w-20 text-blush/30 pointer-events-none rotate-120" />
+                    <LeafSprig className="absolute bottom-4 left-4 w-20 text-blush/30 pointer-events-none rotate-230" />
+
+                    {/* Image with offset border */}
+                    <div className="relative w-2/3">
+                      <div className="relative overflow-hidden group">
+                        <Image
+                          src={item.img}
+                          alt={item.title}
+                          width={0}
+                          height={0}
+                          sizes="(max-width: 768px) 67vw, 33vw"
+                          className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.04]"
+                          unoptimized
+                        />
+                        <div className="absolute inset-0 bg-rose/8 mix-blend-multiply" />
+                      </div>
+                      {/* Offset decorative border */}
+                      <div
+                        className={`absolute -inset-2 border border-blush/30 pointer-events-none -z-10 ${item.side === "right" ? "translate-x-2 translate-y-2" : "-translate-x-2 translate-y-2"
+                          }`}
                       />
-                      {/* Warm overlay */}
-                      <div className="absolute inset-0 bg-rose/8 mix-blend-multiply" />
                     </div>
-                    {/* Offset decorative border */}
-                    <div
-                      className={`absolute -inset-2 border border-blush/25 pointer-events-none -z-10 ${
-                        item.side === "right" ? "translate-x-2 translate-y-2" : "-translate-x-2 translate-y-2"
-                      }`}
-                    />
                   </div>
                 </div>
               </AnimateIn>

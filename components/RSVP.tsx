@@ -4,6 +4,18 @@ import { useState, FormEvent } from "react";
 import { FloralDivider, BranchCorner } from "./BotanicalSVG";
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react";
 
+function tapProps(fn: () => void) {
+  return {
+    onPointerDown(e: React.PointerEvent<HTMLButtonElement>) {
+      if (e.pointerType !== "mouse") {
+        e.preventDefault();
+        fn();
+      }
+    },
+    onClick: fn,
+  };
+}
+
 type PresenceOption = "sim" | "nao" | "";
 
 interface FormState {
@@ -79,7 +91,7 @@ export default function RSVP() {
   };
 
   const inputCls = (err?: string) =>
-    `w-full px-4 py-3 bg-cream border ${
+    `w-full px-4 py-3.5 bg-cream border min-h-[52px] touch-manipulation ${
       err ? "border-rose" : "border-border"
     } font-body text-brown text-lg placeholder:text-muted/40 focus:outline-none focus:border-rose transition-colors duration-200`;
 
@@ -89,6 +101,7 @@ export default function RSVP() {
   return (
     <section
       id="rsvp"
+      aria-label="Confirmação de Presença"
       className="py-24 md:py-36 bg-linen relative overflow-hidden"
     >
       {/* Corner botanical */}
@@ -181,26 +194,23 @@ export default function RSVP() {
               )}
               <div className="grid grid-cols-2 gap-3">
                 {(["sim", "nao"] as PresenceOption[]).map((opt) => (
-                  <label
+                  <button
                     key={opt}
-                    className={`flex items-center justify-center gap-2 px-4 py-3.5 border cursor-pointer transition-all duration-200 ${
+                    type="button"
+                    {...tapProps(() => {
+                      setForm((prev) => ({ ...prev, presence: opt }));
+                      if (errors.presence) setErrors((prev) => ({ ...prev, presence: undefined }));
+                    })}
+                    className={`flex items-center justify-center px-4 py-4 border transition-colors duration-150 min-h-13 touch-manipulation cursor-pointer ${
                       form.presence === opt
                         ? "border-rose bg-rose/8 text-rose"
-                        : "border-border text-muted hover:border-rose/50"
+                        : "border-border text-muted"
                     }`}
                   >
-                    <input
-                      type="radio"
-                      name="presence"
-                      value={opt}
-                      checked={form.presence === opt}
-                      onChange={set("presence")}
-                      className="sr-only"
-                    />
                     <span className="font-ui text-[11px] tracking-[0.2em] uppercase">
                       {opt === "sim" ? "Sim, estarei lá!" : "Infelizmente não"}
                     </span>
-                  </label>
+                  </button>
                 ))}
               </div>
             </div>

@@ -49,7 +49,7 @@ const PHOTOS = [
 
 export default function Gallery() {
   return (
-    <section id="galeria" className="py-24 md:py-36 bg-linen overflow-hidden">
+    <section id="galeria" aria-label="Galeria" className="py-24 md:py-36 bg-linen overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="text-center mb-14 md:mb-20">

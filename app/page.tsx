@@ -4,7 +4,6 @@ import Countdown from "@/components/Countdown";
 import OurStory from "@/components/OurStory";
 import Gallery from "@/components/Gallery";
 import EventDetails from "@/components/EventDetails";
-import RSVP from "@/components/RSVP";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <OurStory />
       <Gallery />
       <EventDetails />
-      <RSVP />
       <Footer />
     </main>
   );
