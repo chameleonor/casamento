@@ -39,7 +39,7 @@ export default function Footer() {
 
         {/* Date */}
         <p className="font-ui text-cream/60 text-[10px] tracking-[0.35em] uppercase mb-2">
-          12 · Dezembro · 2026
+          08 · Agosto · 2026
         </p>
         <p className="font-body text-cream/50 text-base italic mb-12">
           São Paulo, Brasil
@@ -53,7 +53,7 @@ export default function Footer() {
                 key={i}
                 className="font-display italic text-cream/25 text-sm tracking-widest mr-10"
               >
-                Vanessa &amp; Guilherme &middot; 12.12.2026 &middot;
+                Vanessa &amp; Guilherme &middot; 08.08.2026 &middot;
               </span>
             ))}
           </div>

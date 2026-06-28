@@ -1,45 +1,12 @@
+import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 import { FloralDivider, BranchCorner } from "./BotanicalSVG";
-import { MapPin, Clock, CalendarBlank, Heart, Dress } from "@phosphor-icons/react/dist/ssr";
+import { CalendarBlank, MapPin } from "@phosphor-icons/react/dist/ssr";
 
-const EVENTS = [
-  {
-    type: "Cerimônia",
-    time: "16h00",
-    venue: "Igreja Nossa Senhora das Graças",
-    address: "R. das Acácias, 144 – Jardins",
-    city: "São Paulo – SP",
-    note: "Pedimos que os convidados cheguem com 15 minutos de antecedência.",
-    mapUrl: "#",
-  },
-  {
-    type: "Recepção",
-    time: "18h30",
-    venue: "Casa de Festas La Belle",
-    address: "Av. das Rosas, 2450 – Moema",
-    city: "São Paulo – SP",
-    note: "Jantar, dança e muita celebração. A festa vai até a madrugada.",
-    mapUrl: "#",
-  },
-];
-
-const DETAILS = [
-  {
-    icon: CalendarBlank,
-    label: "Data",
-    value: "Sábado, 12 de Dezembro de 2026",
-  },
-  {
-    icon: Heart,
-    label: "Dress Code",
-    value: "Esporte Fino · Tons Pastéis",
-  },
-  {
-    icon: Dress,
-    label: "Observação",
-    value: "Gentileza evitar branco, off-white e tons muito próximos.",
-  },
-];
+// Substitua pela URL de incorporação do Google Maps:
+// Maps > Compartilhar > Incorporar um mapa > copiar src do iframe
+const MAPS_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7312.881835015385!2d-46.6807391!3d-23.588514999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5744a10b61b7%3A0xe8df26d5ebf3284a!2sR%C3%A1scal%20-%20Itaim!5e0!3m2!1sen!2sbr!4v1782677010067!5m2!1sen!2sbr";
 
 export default function EventDetails() {
   return (
@@ -48,15 +15,18 @@ export default function EventDetails() {
       aria-label="Detalhes do Evento"
       className="py-24 md:py-36 bg-cream relative overflow-hidden"
     >
-      {/* Corner botanical - right side */}
       <BranchCorner
         flip
         className="absolute top-0 right-0 w-48 md:w-64 text-blush/30 pointer-events-none"
       />
+      <BranchCorner
+        className="absolute bottom-0 left-0 w-36 md:w-52 text-blush/20 pointer-events-none rotate-180"
+      />
 
       <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
+
         {/* Header */}
-        <div className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-12 md:mb-20">
           <AnimateIn>
             <p className="font-ui text-muted text-[10px] tracking-[0.35em] uppercase mb-4">
               Tudo o que você precisa saber
@@ -68,78 +38,90 @@ export default function EventDetails() {
           </AnimateIn>
         </div>
 
-        {/* Events — split layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-0 mb-20 md:mb-28">
-          {EVENTS.map((event, i) => (
-            <AnimateIn key={event.type} delay={i * 120}>
-              <div
-                className={`p-8 md:p-12 lg:p-16 ${
-                  i === 0
-                    ? "border-b md:border-b-0 md:border-r border-border"
-                    : ""
-                }`}
-              >
-                {/* Type label */}
-                <span className="inline-block font-ui text-rose text-[10px] tracking-[0.3em] uppercase mb-6 pb-3 border-b border-border">
-                  {event.type}
+        {/* Local e Horário */}
+        <div className="mb-20 md:mb-28">
+          <AnimateIn>
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-border">
+              <span className="font-ui text-rose text-[11px] tracking-[0.3em] uppercase text-3xl md:text-xl">
+                Local e Horário
+              </span>
+              <div className="flex items-center gap-2">
+                <CalendarBlank size={13} weight="light" className="text-blush" />
+                <span className="font-ui text-brown text-[11px] tracking-[0.2em] uppercase">
+                  Sábado, 08 de Agosto de 2026
                 </span>
-
-                {/* Time */}
-                <div className="flex items-center gap-2.5 mb-5">
-                  <Clock size={15} weight="light" className="text-blush shrink-0" />
-                  <span className="font-display text-brown text-2xl md:text-3xl italic font-light">
-                    {event.time}
-                  </span>
-                </div>
-
-                {/* Venue */}
-                <h3 className="font-display text-brown text-xl md:text-2xl font-medium mb-3 leading-snug">
-                  {event.venue}
-                </h3>
-
-                {/* Address */}
-                <div className="flex items-start gap-2.5 mb-4">
-                  <MapPin size={15} weight="light" className="text-blush shrink-0 mt-1" />
-                  <div>
-                    <p className="font-body text-muted text-lg leading-snug">{event.address}</p>
-                    <p className="font-body text-muted text-lg leading-snug">{event.city}</p>
-                  </div>
-                </div>
-
-                {/* Note */}
-                <p className="font-body text-muted/70 text-base italic leading-relaxed mb-8 max-w-[44ch]">
-                  {event.note}
-                </p>
-
-                {/* Map CTA */}
-                <a
-                  href={event.mapUrl}
-                  className="inline-flex items-center gap-2 font-ui text-[11px] tracking-[0.2em] uppercase text-rose border-b border-rose/40 pb-0.5 hover:border-rose transition-colors duration-200"
-                >
-                  <MapPin size={13} weight="light" />
-                  Ver no Mapa
-                </a>
               </div>
-            </AnimateIn>
-          ))}
+            </div>            <div className="text-center mb-10">
+              <p className="font-body text-muted text-lg md:text-xl leading-relaxed mb-8 italic max-w-2xl mx-auto">
+                Escolhemos celebrar nossa união de forma simples, em um dos restaurantes
+                preferidos por nós — juntos de nossos amigos e familiares mais próximos.
+              </p>
+              <h3 className="font-display text-brown text-3xl md:text-4xl italic font-light mb-2 leading-snug">
+                Ráscal — Itaim
+              </h3>
+              <div className="flex items-center justify-center gap-2">
+                <MapPin size={14} weight="light" className="text-blush shrink-0" />
+                <p className="font-body text-muted text-lg leading-snug">
+                  R. Leopoldo Couto Magalhães Jr., 1100 — Itaim Bibi, São Paulo
+                </p>
+              </div>
+            </div>
+          </AnimateIn>
+
+          {/* Photo + map side by side */}
+          <AnimateIn delay={100} className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+            <div className="relative aspect-4/3 overflow-hidden border border-blush/20">
+              <Image
+                src="/images/rasacal.jpeg"
+                alt="Ráscal Itaim"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-rose/6 mix-blend-multiply pointer-events-none" />
+            </div>
+            <div className="aspect-4/3 overflow-hidden border border-border">
+              <iframe
+                src={MAPS_EMBED_URL}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização do evento"
+              />
+            </div>
+          </AnimateIn>
         </div>
 
-        {/* Extra details strip */}
-        <AnimateIn animation="fade-in" delay={80}>
-          <div className="border-t border-border pt-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-border">
-            {DETAILS.map(({ icon: Icon, label, value }) => (
-              <div key={label} className="flex flex-col gap-2 md:px-8 first:pl-0 last:pr-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <Icon size={14} weight="light" className="text-blush" />
-                  <span className="font-ui text-muted text-[10px] tracking-[0.25em] uppercase">
-                    {label}
-                  </span>
-                </div>
-                <p className="font-body text-brown text-lg leading-snug">{value}</p>
+        {/* Dress Code */}
+        <AnimateIn delay={80}>
+          <div className=" border-border">
+            <span className="font-ui text-rose text-[11px] tracking-[0.3em] text-3xl md:text-xl uppercase block mb-5 pb-3 border-b border-border">
+              Dress Code
+            </span>
+            <div className="flex flex-col items-center text-center gap-8 max-w-md mx-auto">
+              <p className="font-body text-muted text-lg md:text-xl leading-relaxed italic">
+                Casual Chic. Conforto com toque de elegância! Sugerimos saias, vestidos
+                longos ou midis, tailleur; calças de alfaiataria, camisas e blazers.
+              </p>
+              <div className="relative overflow-hidden border border-blush/20 w-full max-w-xs">
+                <Image
+                  src="/images/casual.jpg"
+                  alt="Dress code exemplo"
+                  width={0}
+                  height={0}
+                  sizes="320px"
+                  className="w-full h-auto"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-rose/6 mix-blend-multiply pointer-events-none" />
               </div>
-            ))}
+            </div>
           </div>
         </AnimateIn>
+
       </div>
     </section>
   );

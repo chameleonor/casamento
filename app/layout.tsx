@@ -24,11 +24,11 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Vanessa & Guilherme — 12.12.2026",
+  title: "Vanessa & Guilherme — 08.08.2026",
   description:
-    "Você está convidado para celebrar o casamento de Vanessa e Guilherme, no dia 12 de Dezembro de 2026, em São Paulo.",
+    "Você está convidado para celebrar o casamento de Vanessa e Guilherme, no dia 08 de Agosto de 2026, em São Paulo.",
   openGraph: {
-    title: "Vanessa & Guilherme — 12.12.2026",
+    title: "Vanessa & Guilherme — 08.08.2026",
     description: "Junte-se a nós neste dia tão especial.",
     type: "website",
   },

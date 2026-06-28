@@ -10,6 +10,7 @@ const STORY = [
     text: "Nos conhecemos através de um encontro inesperado de queridos amigos em comum. Em um despretensioso sábado a noite, no centro de São Paulo, aguardando na fila da entrada da Tokyo 011. Tudo começou com uma leve troca de olhares, depois muito papo e claro alguns drinks. Não vamos negar que o lugar ajudou, música alta, local cheio e iluminação baixa.. e nossos amigos?! haha a gente não soube muito deles naquele dia! Noite a dentro, números de telefones trocado e tudo realmente começou…",
     img: "/images/primeiro_encontro.JPG",
     side: "right",
+    imgSize: "w-2/4",
   },
   {
     year: "28 · Agosto · 2022",
@@ -26,14 +27,16 @@ const STORY = [
     text: "Depois de um ano e meio de namoro e algumas conveniências, decidimos viver juntos! E nossa experiência até aqui tem sido de muito amor, zelo e cumplicidade. Claro, nem tudo são rosas.. desafios do dia a dia acontecem. A rotina, os problemas e o estresse as vezes pesam mas nossa escolha em ficar, em lutar, em continuar conquistando um ao outro é diária! E sim, é sempre melhor quando estamos juntos! Entre muitas responsabilidades e obrigações também encontramos tempo para um colo, um cafuné, um bilhetinho escondido, flores surpresa, passeios, pescaria, muita comidinha in e out e sempre muitas conversas aleatórias! E amor.. muito amor! ",
     img: "/images/uma_vida_a_dois.JPG",
     side: "right",
-    imgSize: "w-3/4",
+    imgSize: "w-7/8",
   },
   {
-    year: "Novembro · 2024",
+    year: "27 · Setembro · 2025",
     title: "Ele Perguntou...",
-    text: "No alto do Pão de Açúcar, com o Rio de Janeiro inteiro aos nossos pés e as mãos entrelaçadas, ela disse sim.",
-    img: "/images/ele_perguntou.JPG",
+    subtitle: "(e ela disse sim!):",
+    text: "Com um bilhetinho escondido e uma viagem surpresa, o tão esperado pedido finalmente (formalmente) veio! A ideia de casar sempre existiu para nós desde que nos tornamos um casal, e não poderia ter sido tão do nosso jeito, discreto e intimo. Outro final de semana mas não um qualquer, um tranquilo, leve e cheio de novidades. Uma pequena incrível viagem inesquecível! Só nós, nosso amor, no nosso tempo! ",
+    img: "/images/pedido.JPG",
     side: "left",
+    imgSize: "w-4/5",
   },
 ];
 
@@ -89,7 +92,7 @@ export default function OurStory() {
                     <LeafSprig className="absolute bottom-4 left-4 w-20 text-blush/30 pointer-events-none rotate-230" />
 
                     {/* Image with offset border */}
-                    <div className="relative w-2/3">
+                    <div className={`relative ${"imgSize" in item ? item.imgSize : "w-2/3"}`}>
                       <div className="relative overflow-hidden group">
                         <Image
                           src={item.img}
