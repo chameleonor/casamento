@@ -103,7 +103,7 @@ export default function EventDetails() {
             </span>
             <div className="flex flex-col items-center text-center gap-8 max-w-md mx-auto">
               <p className="font-body text-muted text-lg md:text-xl leading-relaxed italic">
-                Casual Chic. Conforto com toque de elegância! Sugerimos saias, vestidos
+                Casual Chic (Esporte Fino). Conforto com toque de elegância! Sugerimos saias, vestidos
                 longos ou midis, tailleur; calças de alfaiataria, camisas e blazers.
               </p>
               <div className="relative overflow-hidden border border-blush/20 w-full max-w-xs">
