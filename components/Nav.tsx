@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { List, X } from "@phosphor-icons/react";
 
 const NAV_LINKS = [
-  { label: "Início", href: "#inicio" },
-  { label: "Nossa História", href: "#historia" },
-  { label: "Galeria", href: "#galeria" },
-  { label: "Detalhes", href: "#detalhes" },
+  { label: "Início", href: "/#inicio" },
+  { label: "Nossa História", href: "/#historia" },
+  { label: "Galeria", href: "/#galeria" },
+  { label: "Detalhes", href: "/#detalhes" },
 ];
 
 export default function Nav() {
@@ -33,7 +33,7 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#inicio"
+          href="/"
           className="font-display text-rose italic text-xl tracking-wide select-none"
         >
           V & G

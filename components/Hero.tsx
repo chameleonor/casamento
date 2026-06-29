@@ -39,8 +39,8 @@ export default function Hero() {
             <span className="block text-[clamp(3rem,10vw,5.5rem)] font-light italic">
               Vanessa
             </span>
-            <span className="block text-xl md:text-3xl font-light text-rose my-2 md:my-3 tracking-[0.15em] font-ui not-italic">
-              &amp;
+            <span className="block text-5xl font-light italic text-rose">
+              &
             </span>
             <span className="block text-[clamp(3rem,10vw,5.5rem)] font-light italic">
               Guilherme

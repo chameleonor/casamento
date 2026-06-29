@@ -123,26 +123,6 @@ function PessoaRow({
         </div>
       </div>
 
-      {/* Meal — only shown when attending */}
-      {pessoa.presenca === "sim" && (
-        <div>
-          <label htmlFor={`refeicao-${index}`} className={labelCls}>
-            Restrição Alimentar
-          </label>
-          <select
-            id={`refeicao-${index}`}
-            value={pessoa.refeicao}
-            onChange={(e) => onChange(index, "refeicao", e.target.value)}
-            className={inputCls()}
-          >
-            {REFEICAO_OPTIONS.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
     </div>
   );
 }
