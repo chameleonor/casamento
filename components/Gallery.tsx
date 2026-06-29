@@ -4,7 +4,7 @@ import { FloralDivider } from "./BotanicalSVG";
 
 const PHOTOS = [
   {
-    src: "/images/casamento_tania.JPG",
+    src: "/images/casamento_tania.jpg",
     alt: "",
     className: "col-span-1 row-span-2",
     aspect: "aspect-[3/4]",
@@ -35,13 +35,13 @@ const PHOTOS = [
     aspect: "aspect-[16/7]",
   },
   {
-    src: "/images/tokyo.JPG",
+    src: "/images/tokyo.jpg",
     alt: "",
     className: "col-span-1 row-span-2",
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/images/pescaria.JPG",
+    src: "/images/pescaria.jpg",
     alt: "",
     className: "col-span-1 row-span-2",
     aspect: "aspect-[4/3]",
@@ -53,7 +53,7 @@ const PHOTOS = [
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/images/mao.JPG",
+    src: "/images/mao.jpg",
     alt: "",
     className: "col-span-1 row-span-1",
     aspect: "aspect-[3/4]",
@@ -65,13 +65,13 @@ const PHOTOS = [
     aspect: "aspect-[4/3]",
   },
   {
-    src: "/images/cafe_gostoso.JPG",
+    src: "/images/cafe_gostoso.jpg",
     alt: "",
     className: "col-span-1 row-span-2",
     aspect: "aspect-[4/3]",
   },
   {
-    src: "/images/trailer.JPG",
+    src: "/images/trailer.jpg",
     alt: "",
     className: "col-span-1 row-span-2",
     aspect: "aspect-[4/3]",
@@ -83,7 +83,7 @@ const PHOTOS = [
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/images/eu_e_voce.JPG",
+    src: "/images/eu_e_voce.jpg",
     alt: "",
     className: "col-span-1 row-span-2",
     aspect: "aspect-[4/3]",
