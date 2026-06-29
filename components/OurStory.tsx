@@ -74,10 +74,10 @@ export default function OurStory() {
                     <span className="font-ui text-rose text-[10px] tracking-[0.3em] uppercase block mb-3">
                       {item.year}
                     </span>
-                    <h3 className="font-display text-brown text-lg md:text-5xl italic font-light mb-4 leading-snug whitespace-nowrap">
+                    <h3 className="font-display text-brown text-3xl sm:text-4xl md:text-5xl italic font-light mb-2 leading-snug">
                       {item.title}
                     </h3>
-                    <h4 className="font-display text-brown text-lg md:text-2xl italic font-light mb-4 leading-snug whitespace-nowrap">
+                    <h4 className="font-display text-brown text-lg sm:text-xl md:text-2xl italic font-light mb-4 leading-snug">
                       {item.subtitle}
                     </h4>
                     <p className="font-body text-muted text-lg md:text-xl leading-relaxed max-w-[52ch]">
