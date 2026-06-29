@@ -48,7 +48,7 @@ export default function EventDetails() {
               <div className="flex items-center gap-2">
                 <CalendarBlank size={13} weight="light" className="text-blush" />
                 <span className="font-ui text-brown text-[11px] tracking-[0.2em] uppercase">
-                  Sábado, 08 de Agosto de 2026
+                  Sábado, 08 de Agosto de 2026 - 19h
                 </span>
               </div>
             </div>            <div className="text-center mb-10">
