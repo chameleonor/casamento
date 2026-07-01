@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Image from "next/image";
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react";
 import { FloralDivider, BranchCorner } from "@/components/BotanicalSVG";
 import type { Convidado } from "@/data/convidados";
@@ -109,11 +110,10 @@ function PessoaRow({
               key={opt}
               type="button"
               {...tapProps(() => onChange(index, "presenca", opt))}
-              className={`flex items-center justify-center px-3 py-4 border transition-colors duration-150 min-h-13 touch-manipulation cursor-pointer ${
-                pessoa.presenca === opt
+              className={`flex items-center justify-center px-3 py-4 border transition-colors duration-150 min-h-13 touch-manipulation cursor-pointer ${pessoa.presenca === opt
                   ? "border-rose bg-rose/8 text-rose"
                   : "border-border text-muted"
-              }`}
+                }`}
             >
               <span className="font-ui text-[10px] tracking-[0.2em] uppercase">
                 {opt === "sim" ? "Estarei lá!" : "Não poderei ir"}
@@ -123,6 +123,31 @@ function PessoaRow({
         </div>
       </div>
 
+    </div>
+  );
+}
+
+function ListaPresentes() {
+  return (
+    <div className="border border-border bg-white/40 px-4 sm:px-6 py-10 h-full flex flex-col items-center text-center">
+      <p className="font-ui text-muted text-[10px] tracking-[0.35em] uppercase mb-5">
+        Lista de Presentes
+      </p>
+      <p className="font-body text-brown text-xl italic font-light leading-relaxed mb-4">
+        Sua presença já é um grande presente para nós!
+      </p>
+      <p className="font-body text-muted text-base italic leading-relaxed mb-8 max-w-xs">
+        Mas caso queira nos presentear e nos ajudar em nossa nova fase de
+        casados, ficaremos muito agradecidos em recebê-lo!
+      </p>
+      <div className="relative w-56 h-56 max-w-full border border-border bg-cream p-2">
+        <Image
+          src="/images/PIX.jpg"
+          alt="QR Code Pix"
+          fill
+          className="object-contain"
+        />
+      </div>
     </div>
   );
 }
@@ -220,10 +245,10 @@ export default function RSVPConvidado({ convidado }: Props) {
       <BranchCorner className="absolute top-0 left-0 w-32 md:w-56 text-blush/40 pointer-events-none" />
       <BranchCorner flip className="absolute bottom-0 right-0 w-32 md:w-52 text-blush/30 pointer-events-none rotate-180" />
 
-      <div className="max-w-xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 max-w-xl mx-auto">
           <p className="font-ui text-muted text-[10px] tracking-[0.35em] uppercase mb-4">
             Convite pessoal
           </p>
@@ -236,91 +261,101 @@ export default function RSVPConvidado({ convidado }: Props) {
           <FloralDivider className="w-52 mx-auto text-blush" />
         </div>
 
-        {submitted ? (
-          // ── Success ──────────────────────────────────────────────────────
-          <div className="text-center py-14 px-6 border border-border bg-linen">
-            <CheckCircle size={44} weight="light" className="text-sage mx-auto mb-5" />
-            <h2 className="font-display text-brown text-2xl italic font-light mb-3">
-              Confirmação recebida!
-            </h2>
-            <p className="font-body text-muted text-lg italic leading-relaxed max-w-xs mx-auto">
-              {alguemConfirmou
-                ? `Recebemos a confirmação de ${totalConfirmados} pessoa${totalConfirmados > 1 ? "s" : ""}. Mal podemos esperar!`
-                : "Sentiremos sua falta. Obrigado por nos avisar."}
-            </p>
-          </div>
-        ) : (
-          // ── Form ─────────────────────────────────────────────────────────
-          <form onSubmit={handleSubmit} noValidate>
-
-            {/* Person rows */}
-            <div className="border border-border bg-white/40 px-4 sm:px-6 mb-6">
-              {form.pessoas.map((pessoa, i) => (
-                <PessoaRow
-                  key={i}
-                  pessoa={pessoa}
-                  index={i}
-                  onChange={updatePessoa}
-                  error={presencaErrors[i]}
-                />
-              ))}
-            </div>
-
-            {/* Email */}
-            <div className="mb-5">
-              <label htmlFor="email" className={labelCls}>E-mail de contato</label>
-              <input
-                id="email"
-                type="email"
-                value={form.email}
-                onChange={(e) => {
-                  setForm((p) => ({ ...p, email: e.target.value }));
-                  setEmailError("");
-                }}
-                placeholder="seu@email.com"
-                className={inputCls(!!emailError)}
-                autoComplete="email"
-              />
-              {emailError && (
-                <p className="font-ui text-rose text-[11px] mt-1.5 flex items-center gap-1">
-                  <WarningCircle size={12} weight="fill" /> {emailError}
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+          {/* Left: RSVP form */}
+          <div className="w-full max-w-xl mx-auto md:mx-0">
+            {submitted ? (
+              // ── Success ──────────────────────────────────────────────────
+              <div className="text-center py-14 px-6 border border-border bg-linen">
+                <CheckCircle size={44} weight="light" className="text-sage mx-auto mb-5" />
+                <h2 className="font-display text-brown text-2xl italic font-light mb-3">
+                  Confirmação recebida!
+                </h2>
+                <p className="font-body text-muted text-lg italic leading-relaxed max-w-xs mx-auto">
+                  {alguemConfirmou
+                    ? `Recebemos a confirmação de ${totalConfirmados} pessoa${totalConfirmados > 1 ? "s" : ""}. Mal podemos esperar!`
+                    : "Sentiremos sua falta. Obrigado por nos avisar."}
                 </p>
-              )}
-            </div>
-
-            {/* Message */}
-            <div className="mb-6">
-              <label htmlFor="mensagem" className={labelCls}>
-                Mensagem para os noivos (opcional)
-              </label>
-              <textarea
-                id="mensagem"
-                value={form.mensagem}
-                onChange={(e) => setForm((p) => ({ ...p, mensagem: e.target.value }))}
-                rows={3}
-                placeholder="Deixe um recado especial..."
-                className={`${inputCls()} resize-none`}
-              />
-            </div>
-
-            {/* Server error */}
-            {serverError && (
-              <div className="flex items-start gap-2 px-4 py-3 border border-rose/40 bg-rose/5 mb-5">
-                <WarningCircle size={14} weight="fill" className="text-rose shrink-0 mt-0.5" />
-                <p className="font-ui text-rose text-[11px] tracking-wide">{serverError}</p>
               </div>
-            )}
+            ) : (
+              // ── Form ─────────────────────────────────────────────────────
+              <form onSubmit={handleSubmit} noValidate>
 
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-4 bg-brown text-cream font-ui text-[11px] tracking-[0.28em] uppercase transition-all duration-300 hover:bg-rose-dark active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {loading ? "Enviando..." : "Confirmar Presença"}
-            </button>
-          </form>
-        )}
+                {/* Person rows */}
+                <div className="border border-border bg-white/40 px-4 sm:px-6 mb-6">
+                  {form.pessoas.map((pessoa, i) => (
+                    <PessoaRow
+                      key={i}
+                      pessoa={pessoa}
+                      index={i}
+                      onChange={updatePessoa}
+                      error={presencaErrors[i]}
+                    />
+                  ))}
+                </div>
+
+                {/* Email */}
+                <div className="mb-5">
+                  <label htmlFor="email" className={labelCls}>E-mail de contato</label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => {
+                      setForm((p) => ({ ...p, email: e.target.value }));
+                      setEmailError("");
+                    }}
+                    placeholder="seu@email.com"
+                    className={inputCls(!!emailError)}
+                    autoComplete="email"
+                  />
+                  {emailError && (
+                    <p className="font-ui text-rose text-[11px] mt-1.5 flex items-center gap-1">
+                      <WarningCircle size={12} weight="fill" /> {emailError}
+                    </p>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div className="mb-6">
+                  <label htmlFor="mensagem" className={labelCls}>
+                    Mensagem para os noivos (opcional)
+                  </label>
+                  <textarea
+                    id="mensagem"
+                    value={form.mensagem}
+                    onChange={(e) => setForm((p) => ({ ...p, mensagem: e.target.value }))}
+                    rows={3}
+                    placeholder="Deixe um recado especial..."
+                    className={`${inputCls()} resize-none`}
+                  />
+                </div>
+
+                {/* Server error */}
+                {serverError && (
+                  <div className="flex items-start gap-2 px-4 py-3 border border-rose/40 bg-rose/5 mb-5">
+                    <WarningCircle size={14} weight="fill" className="text-rose shrink-0 mt-0.5" />
+                    <p className="font-ui text-rose text-[11px] tracking-wide">{serverError}</p>
+                  </div>
+                )}
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 bg-brown text-cream font-ui text-[11px] tracking-[0.28em] uppercase transition-all duration-300 hover:bg-rose-dark active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Enviando..." : "Confirmar Presença"}
+                </button>
+              </form>
+            )}
+          </div>
+
+          {/* Right: Lista de Presentes */}
+          <div className="w-full max-w-xl mx-auto md:mx-0">
+            <ListaPresentes />
+          </div>
+        </div>
 
         {/* Back link */}
         <div className="text-center mt-8">

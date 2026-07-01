@@ -1,4 +1,5 @@
-import { FloralDivider, WreathSmall, LeafSprig } from "./BotanicalSVG";
+import Image from "next/image";
+import { FloralDivider, LeafSprig } from "./BotanicalSVG";
 import { Heart } from "@phosphor-icons/react/dist/ssr";
 
 export default function Footer() {
@@ -19,14 +20,14 @@ export default function Footer() {
       <LeafSprig className="absolute bottom-12 left-8 w-6 text-cream/10 pointer-events-none animate-float [animation-delay:2s]" />
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-        {/* Wreath with monogram */}
-        <div className="relative w-32 h-32 mx-auto mb-8">
-          <WreathSmall className="absolute inset-0 text-blush/50" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display italic text-cream/90 text-2xl tracking-wide select-none">
-              V&G
-            </span>
-          </div>
+        {/* Logo */}
+        <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden">
+          <Image
+            src="/images/logo.jpg"
+            alt="Vanessa & Guilherme"
+            fill
+            className="object-cover"
+          />
         </div>
 
         {/* Names */}
