@@ -45,11 +45,11 @@ export const convidados: Convidado[] = [
   {
     id: "pOQqq",
     nome: "Danilo",
-    acompanhantes: [{ nome: "Debora" }],
+    acompanhantes: [{ nome: "Acompanhante" }],
   },
   {
     id: "rYuY8",
-    nome: "Daniel & Lisa",
+    nome: "Daniel & Lissa",
     acompanhantes: [],
   },
   {
@@ -172,7 +172,7 @@ export const convidados: Convidado[] = [
   {
     id: "t3MV2",
     nome: "Thiago Fujita",
-    acompanhantes: [],
+    acompanhantes: [{ nome: "Acompanhante" }],
   },
   {
     id: "1Cu0o",
