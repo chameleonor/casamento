@@ -9,196 +9,193 @@
 //   https://seusite.com/confirmar/<id>
 // ─────────────────────────────────────────────────────────────────────────────
 
-export interface Acompanhante {
-  nome: string;
-}
-
 export interface Convidado {
   id: string;
   nome: string;
   email?: string;
-  acompanhantes: Acompanhante[];
+  // Todas as pessoas deste convite que precisam confirmar presença.
+  convidados: string[];
 }
 
 export const convidados: Convidado[] = [
   {
     id: "ufBTw",
     nome: "Suely & Fernando Ör",
-    acompanhantes: [],
+    convidados: ["Suely", "Fernando"],
   },
   {
     id: "7MX9f",
     nome: "Leticia & Silvan Mira",
-    acompanhantes: [],
+    convidados: ["Leticia", "Silvan"],
   },
   {
     id: "dLq4R",
     nome: "Roseli & Nathan",
-    acompanhantes: [],
+    convidados: ["Roseli", "Nathan"],
   },
   {
     id: "SqMGQ",
     nome: "Therezinha & Jerson Zampirolli",
-    acompanhantes: [],
+    convidados: ["Therezinha", "Jerson"],
   },
 
   {
     id: "pOQqq",
     nome: "Danilo",
-    acompanhantes: [{ nome: "Acompanhante" }],
+    convidados: ["Danilo", "Acompanhante"],
   },
   {
     id: "rYuY8",
     nome: "Daniel & Lissa",
-    acompanhantes: [],
+    convidados: ["Daniel", "Lissa"],
   },
   {
     id: "FIPi0",
     nome: "Rodrigo Dau",
-    acompanhantes: [],
+    convidados: ["Rodrigo Dau"],
   },
   {
     id: "vjrnT",
     nome: "Artur Pereira",
-    acompanhantes: [],
+    convidados: ["Artur"],
   },
 
   {
     id: "Phe7h",
     nome: "Edson Katayama",
-    acompanhantes: [],
+    convidados: ["Edson"],
   },
   {
     id: "Zq7IR",
     nome: "Mitsue & Rafael Katayama",
-    acompanhantes: [{ nome: "Pedro" }],
+    convidados: ["Mitsue", "Rafael", "Pedro"],
   },
   {
     id: "jsVfR",
     nome: "Érica & Claudio Kawakami",
-    acompanhantes: [{ nome: "Felipe" }],
+    convidados: ["Érica", "Claudio"],
   },
   {
     id: "S0Njf",
     nome: "Regina & Edson Kondo",
-    acompanhantes: [],
+    convidados: ["Regina", "Edson"],
   },
   {
     id: "WL352",
     nome: "Valeria & Luis Katayama",
-    acompanhantes: [],
+    convidados: ["Valeria", "Luis"],
   },
   {
     id: "5oImP",
     nome: "Tania & Fernando Katayama",
-    acompanhantes: [{ nome: "Iasmin" }, { nome: "Matheus" }],
+    convidados: ["Tania", "Fernando", "Iasmin", "Matheus"],
   },
   {
     id: "h80ws",
     nome: "Gabrielle Katayama",
-    acompanhantes: [{ nome: "Gabriel" }],
+    convidados: ["Gabrielle", "Gabriel"],
   },
   {
     id: "jDxrj",
     nome: "Leticia Katayama",
-    acompanhantes: [{ nome: "Miguel" }],
+    convidados: ["Leticia", "Miguel"],
   },
   {
     id: "7KOHa",
     nome: "Julia Iwamoto",
-    acompanhantes: [],
+    convidados: ["Julia Iwamoto"],
   },
   {
     id: "WoPqr",
     nome: "Karina Iwamoto",
-    acompanhantes: [{ nome: "Luisa" }],
+    convidados: ["Karina", "Luisa"],
   },
   {
     id: "EzBlu",
     nome: "Rosa Katayama",
-    acompanhantes: [],
+    convidados: ["Rosa"],
   },
   {
     id: "Fq7MD",
     nome: "Michelli & Arthur Tamari",
-    acompanhantes: [{ nome: "Iris" }, { nome: "Henry" }],
+    convidados: ["Michelli", "Arthur", "Iris", "Henry"],
   },
   {
     id: "JSLtC",
     nome: "Audrey & Augusto Isayama",
-    acompanhantes: [{ nome: "Alice" }],
+    convidados: ["Audrey", "Augusto", "Alice"],
   },
 
   {
     id: "fAcyT",
     nome: "Marina & Helio Isayama",
-    acompanhantes: [],
+    convidados: ["Marina", "Helio"],
   },
   {
     id: "laB9j",
     nome: "Fernanda & Helio Isayama",
-    acompanhantes: [],
+    convidados: ["Fernanda", "Helio"],
   },
   {
     id: "rt5cu",
     nome: "Emiko & Fabio Katayama",
-    acompanhantes: [{ nome: "Carolina" }],
+    convidados: ["Emiko", "Fabio", "Carolina"],
   },
   {
     id: "hRZ1u",
     nome: "Priscila & Luan Bordino",
-    acompanhantes: [{ nome: "Laura" }, { nome: "Manuela" }],
+    convidados: ["Priscila", "Luan", "Laura", "Manuela"],
   },
   {
     id: "sA4y8",
     nome: "Neusa & Marcos Katayama",
-    acompanhantes: [],
+    convidados: ["Neusa", "Marcos"],
   },
   {
     id: "FMEyH",
     nome: "Elisa & Eduardo Katayama",
-    acompanhantes: [],
+    convidados: ["Elisa", "Eduardo"],
   },
   {
     id: "EYCNe",
     nome: "Keyla & Felipe Borodiak",
-    acompanhantes: [{ nome: "Naomi" }],
+    convidados: ["Keyla", "Felipe", "Naomi"],
   },
   {
     id: "nUltd",
     nome: "Luiza & Nelson Fujita",
-    acompanhantes: [],
+    convidados: ["Luiza", "Nelson"],
   },
   {
     id: "t3MV2",
     nome: "Thiago Fujita",
-    acompanhantes: [{ nome: "Acompanhante" }],
+    convidados: ["Thiago", "Acompanhante"],
   },
   {
     id: "1Cu0o",
     nome: "Raquel & Bruno Andrade",
-    acompanhantes: [{ nome: "Enzo" }],
+    convidados: ["Raquel", "Bruno", "Enzo"],
   },
   {
     id: "S7sCN",
     nome: "Isabela Oliveira",
-    acompanhantes: [{ nome: "Acompanhante" }],
+    convidados: ["Isabela", "Acompanhante"],
   },
   {
     id: "R6ceb",
     nome: "Maria Alice & Rogerio Oliveira",
-    acompanhantes: [],
+    convidados: ["Maria", "Rogerio"],
   },
   {
     id: "AHPuB",
     nome: "Byanca & Caio Inácio",
-    acompanhantes: [],
+    convidados: ["Byanca", "Caio"],
   },
   {
     id: "pR0v9",
     nome: "Felipe Kawakami",
-    acompanhantes: []
-  }
+    convidados: ["Felipe"],
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

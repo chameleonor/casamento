@@ -29,7 +29,6 @@ type PresencaOpcao = "sim" | "nao" | "";
 
 interface PessoaForm {
   nome: string;
-  tipo: "titular" | "acompanhante";
   presenca: PresencaOpcao;
   refeicao: string;
 }
@@ -46,15 +45,11 @@ function buildInitialState(convidado: Convidado): FormState {
   return {
     email: convidado.email ?? "",
     mensagem: "",
-    pessoas: [
-      { nome: convidado.nome, tipo: "titular", presenca: "", refeicao: "" },
-      ...convidado.acompanhantes.map((a) => ({
-        nome: a.nome,
-        tipo: "acompanhante" as const,
-        presenca: "" as PresencaOpcao,
-        refeicao: "",
-      })),
-    ],
+    pessoas: convidado.convidados.map((nome) => ({
+      nome,
+      presenca: "" as PresencaOpcao,
+      refeicao: "",
+    })),
   };
 }
 
@@ -86,14 +81,11 @@ function PessoaRow({
 }) {
   return (
     <div className="py-6 border-b border-border last:border-b-0">
-      {/* Name + type */}
+      {/* Name */}
       <div className="mb-4">
         <p className="font-display text-brown text-xl italic font-light leading-snug">
           {pessoa.nome}
         </p>
-        <span className="font-ui text-muted/60 text-[9px] tracking-[0.2em] uppercase">
-          {pessoa.tipo === "titular" ? "Convidado principal" : "Acompanhante"}
-        </span>
       </div>
 
       {/* Presence */}

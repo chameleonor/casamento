@@ -46,7 +46,6 @@ export async function POST(req: NextRequest) {
 
 interface PessoaPayload {
   nome: string;
-  tipo: string;
   presenca: string;
   refeicao: string;
 }
@@ -76,7 +75,6 @@ function normalizePersonalizado(body: PersonalizadoBody) {
     mensagem: body.mensagem,
     pessoas: body.pessoas.map((p) => ({
       nome: p.nome,
-      tipo: p.tipo,
       presenca: p.presenca === "sim" ? "Confirmado" : "Não vai",
       refeicao: p.refeicao || "Nenhuma",
     })),
