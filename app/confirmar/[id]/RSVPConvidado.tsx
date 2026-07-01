@@ -228,7 +228,7 @@ export default function RSVPConvidado({ convidado }: Props) {
             Convite pessoal
           </p>
           <h1 className="font-display text-brown text-4xl md:text-5xl italic font-light tracking-tight leading-tight mb-2">
-            Olá, {convidado.nome.split(" ")[0]}!
+            Olá, {convidado.nome}!
           </h1>
           <p className="font-body text-muted text-lg md:text-xl italic mb-6">
             Estamos muito felizes em convidá-lo para o nosso grande dia.
