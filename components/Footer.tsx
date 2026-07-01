@@ -85,6 +85,7 @@ export default function Footer() {
             <Heart size={11} weight="fill" className="text-blush/60" />
             {" "}para o nosso grande dia
           </p>
+          <p>Made by Zenko</p>
         </div>
       </div>
     </footer>
