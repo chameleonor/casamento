@@ -91,7 +91,7 @@ export const convidados: Convidado[] = [
   {
     id: "5oImP",
     nome: "Tania & Fernando Katayama",
-    acompanhantes: [{ nome: "Iasmin" }, { nome: "Namorado" }],
+    acompanhantes: [{ nome: "Iasmin" }, { nome: "Matheus" }],
   },
   {
     id: "h80ws",
