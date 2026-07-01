@@ -20,12 +20,12 @@ export interface Convidado {
 export const convidados: Convidado[] = [
   {
     id: "ufBTw",
-    nome: "Suely & Fernando Ör",
+    nome: "Suely & Fernando",
     convidados: ["Suely", "Fernando"],
   },
   {
     id: "7MX9f",
-    nome: "Leticia & Silvan Mira",
+    nome: "Leticia & Silvan",
     convidados: ["Leticia", "Silvan"],
   },
   {
@@ -35,10 +35,9 @@ export const convidados: Convidado[] = [
   },
   {
     id: "SqMGQ",
-    nome: "Therezinha & Jerson Zampirolli",
+    nome: "Therezinha & Jerson",
     convidados: ["Therezinha", "Jerson"],
   },
-
   {
     id: "pOQqq",
     nome: "Danilo",
@@ -67,27 +66,27 @@ export const convidados: Convidado[] = [
   },
   {
     id: "Zq7IR",
-    nome: "Mitsue & Rafael Katayama",
+    nome: "Mitsue & Rafael",
     convidados: ["Mitsue", "Rafael", "Pedro"],
   },
   {
     id: "jsVfR",
-    nome: "Érica & Claudio Kawakami",
+    nome: "Érica & Claudio",
     convidados: ["Érica", "Claudio"],
   },
   {
     id: "S0Njf",
-    nome: "Regina & Edson Kondo",
+    nome: "Regina & Edson",
     convidados: ["Regina", "Edson"],
   },
   {
     id: "WL352",
-    nome: "Valeria & Luis Katayama",
+    nome: "Valeria & Luis",
     convidados: ["Valeria", "Luis"],
   },
   {
     id: "5oImP",
-    nome: "Tania & Fernando Katayama",
+    nome: "Tania & Fernando",
     convidados: ["Tania", "Fernando", "Iasmin", "Matheus"],
   },
   {
@@ -117,53 +116,53 @@ export const convidados: Convidado[] = [
   },
   {
     id: "Fq7MD",
-    nome: "Michelli & Arthur Tamari",
+    nome: "Michelli & Arthur",
     convidados: ["Michelli", "Arthur", "Iris", "Henry"],
   },
   {
     id: "JSLtC",
-    nome: "Audrey & Augusto Isayama",
+    nome: "Audrey & Augusto",
     convidados: ["Audrey", "Augusto", "Alice"],
   },
 
   {
     id: "fAcyT",
-    nome: "Marina & Helio Isayama",
+    nome: "Marina & Helio",
     convidados: ["Marina", "Helio"],
   },
   {
     id: "laB9j",
-    nome: "Fernanda & Helio Isayama",
+    nome: "Fernanda & Helio",
     convidados: ["Fernanda", "Helio"],
   },
   {
     id: "rt5cu",
-    nome: "Emiko & Fabio Katayama",
+    nome: "Emiko & Fabio",
     convidados: ["Emiko", "Fabio", "Carolina"],
   },
   {
     id: "hRZ1u",
-    nome: "Priscila & Luan Bordino",
+    nome: "Priscila & Luan",
     convidados: ["Priscila", "Luan", "Laura", "Manuela"],
   },
   {
     id: "sA4y8",
-    nome: "Neusa & Marcos Katayama",
+    nome: "Neusa & Marcos",
     convidados: ["Neusa", "Marcos"],
   },
   {
     id: "FMEyH",
-    nome: "Elisa & Eduardo Katayama",
+    nome: "Elisa & Eduardo",
     convidados: ["Elisa", "Eduardo"],
   },
   {
     id: "EYCNe",
-    nome: "Keyla & Felipe Borodiak",
+    nome: "Keyla & Felipe",
     convidados: ["Keyla", "Felipe", "Naomi"],
   },
   {
     id: "nUltd",
-    nome: "Luiza & Nelson Fujita",
+    nome: "Luiza & Nelson",
     convidados: ["Luiza", "Nelson"],
   },
   {
@@ -173,7 +172,7 @@ export const convidados: Convidado[] = [
   },
   {
     id: "1Cu0o",
-    nome: "Raquel & Bruno Andrade",
+    nome: "Raquel & Bruno",
     convidados: ["Raquel", "Bruno", "Enzo"],
   },
   {
@@ -183,12 +182,12 @@ export const convidados: Convidado[] = [
   },
   {
     id: "R6ceb",
-    nome: "Maria Alice & Rogerio Oliveira",
+    nome: "Maria Alice & Rogerio",
     convidados: ["Maria", "Rogerio"],
   },
   {
     id: "AHPuB",
-    nome: "Byanca & Caio Inácio",
+    nome: "Byanca & Caio",
     convidados: ["Byanca", "Caio"],
   },
   {
