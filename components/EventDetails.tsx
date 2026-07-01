@@ -108,7 +108,7 @@ export default function EventDetails() {
               </p>
               <div className="relative overflow-hidden border border-blush/20 w-full max-w-xs">
                 <Image
-                  src="/images/casual.jpg"
+                  src="/images/dress_code.jpg"
                   alt="Dress code exemplo"
                   width={0}
                   height={0}
