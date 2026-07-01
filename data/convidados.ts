@@ -194,6 +194,11 @@ export const convidados: Convidado[] = [
     nome: "Byanca & Caio Inácio",
     acompanhantes: [],
   },
+  {
+    id: "pR0v9",
+    nome: "Felipe Kawakami",
+    acompanhantes: []
+  }
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
