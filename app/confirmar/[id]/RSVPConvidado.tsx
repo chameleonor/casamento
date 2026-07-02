@@ -103,8 +103,8 @@ function PessoaRow({
               type="button"
               {...tapProps(() => onChange(index, "presenca", opt))}
               className={`flex items-center justify-center px-3 py-4 border transition-colors duration-150 min-h-13 touch-manipulation cursor-pointer ${pessoa.presenca === opt
-                  ? "border-rose bg-rose/8 text-rose"
-                  : "border-border text-muted"
+                ? "border-rose bg-rose/8 text-rose"
+                : "border-border text-muted"
                 }`}
             >
               <span className="font-ui text-[10px] tracking-[0.2em] uppercase">
@@ -132,6 +132,7 @@ function ListaPresentes() {
         Mas caso queira nos presentear e nos ajudar em nossa nova fase de
         casados, ficaremos muito agradecidos em recebê-lo!
       </p>
+      <p class="mb-4">PIX QR CODE</p>
       <div className="relative w-56 h-56 max-w-full border border-border bg-cream p-2">
         <Image
           src="/images/PIX.jpg"
@@ -139,6 +140,18 @@ function ListaPresentes() {
           fill
           className="object-contain"
         />
+      </div>
+
+      <p class="mt-4">OU</p>
+
+      <div className="mt-5 space-y-1">
+        <p>Chaves PIX:</p>
+        <p className="font-ui text-muted text-xs tracking-wide">
+          CPF: <span className="text-brown">373.576.138-01</span>
+        </p>
+        <p className="font-ui text-muted text-xs tracking-wide">
+          Cel: <span className="text-brown">(11) 97493-6023</span>
+        </p>
       </div>
     </div>
   );
