@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Parisienne, Cormorant_Garamond, Geist } from "next/font/google";
+import MusicPlayer from "@/components/MusicPlayer";
 import "./globals.css";
 
 const parisienne = Parisienne({
@@ -42,7 +43,10 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${parisienne.variable} ${cormorant.variable} ${geist.variable}`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        <MusicPlayer />
+      </body>
     </html>
   );
 }
