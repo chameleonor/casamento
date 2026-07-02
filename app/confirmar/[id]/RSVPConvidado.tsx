@@ -132,7 +132,7 @@ function ListaPresentes() {
         Mas caso queira nos presentear e nos ajudar em nossa nova fase de
         casados, ficaremos muito agradecidos em recebê-lo!
       </p>
-      <p class="mb-4">PIX QR CODE</p>
+      <p className="mb-4">PIX QR CODE</p>
       <div className="relative w-56 h-56 max-w-full border border-border bg-cream p-2">
         <Image
           src="/images/PIX.jpg"
@@ -142,7 +142,7 @@ function ListaPresentes() {
         />
       </div>
 
-      <p class="mt-4">OU</p>
+      <p className="mt-4">OU</p>
 
       <div className="mt-5 space-y-1">
         <p>Chaves PIX:</p>
