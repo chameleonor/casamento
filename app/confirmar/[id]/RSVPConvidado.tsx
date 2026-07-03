@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import Image from "next/image";
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react";
 import { FloralDivider, BranchCorner } from "@/components/BotanicalSVG";
@@ -166,10 +166,18 @@ interface Props {
 export default function RSVPConvidado({ convidado }: Props) {
   const [form, setForm] = useState<FormState>(() => buildInitialState(convidado));
   const [presencaErrors, setPresencaErrors] = useState<Record<number, string>>({});
-  const [emailError, setEmailError] = useState("");
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const presentesRef = useRef<HTMLDivElement>(null);
+
+  // No celular o formulário e a lista de presentes ficam empilhados;
+  // depois de confirmar, rola até a lista de presentes para que ela apareça.
+  useEffect(() => {
+    if (!submitted) return;
+    if (window.innerWidth >= 768) return;
+    presentesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [submitted]);
 
   // ── Handlers ──────────────────────────────────────────────────────────────
 
@@ -195,13 +203,7 @@ export default function RSVPConvidado({ convidado }: Props) {
     });
     setPresencaErrors(erros);
 
-    let emailErr = "";
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      emailErr = "Informe um e-mail válido para contato.";
-    }
-    setEmailError(emailErr);
-
-    return Object.keys(erros).length === 0 && !emailErr;
+    return Object.keys(erros).length === 0;
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -299,28 +301,6 @@ export default function RSVPConvidado({ convidado }: Props) {
                   ))}
                 </div>
 
-                {/* Email */}
-                <div className="mb-5">
-                  <label htmlFor="email" className={labelCls}>E-mail de contato</label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => {
-                      setForm((p) => ({ ...p, email: e.target.value }));
-                      setEmailError("");
-                    }}
-                    placeholder="seu@email.com"
-                    className={inputCls(!!emailError)}
-                    autoComplete="email"
-                  />
-                  {emailError && (
-                    <p className="font-ui text-rose text-[11px] mt-1.5 flex items-center gap-1">
-                      <WarningCircle size={12} weight="fill" /> {emailError}
-                    </p>
-                  )}
-                </div>
-
                 {/* Message */}
                 <div className="mb-6">
                   <label htmlFor="mensagem" className={labelCls}>
@@ -357,7 +337,7 @@ export default function RSVPConvidado({ convidado }: Props) {
           </div>
 
           {/* Right: Lista de Presentes */}
-          <div className="w-full max-w-xl mx-auto md:mx-0">
+          <div ref={presentesRef} className="w-full max-w-xl mx-auto md:mx-0 scroll-mt-20">
             <ListaPresentes />
           </div>
         </div>

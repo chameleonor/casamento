@@ -87,16 +87,16 @@ export const convidados: Convidado[] = [
   {
     id: "5oImP",
     nome: "Tania & Fernando",
-    convidados: ["Tania", "Fernando", "Iasmin", "Matheus"],
+    convidados: ["Tania", "Fernando"],
   },
   {
     id: "h80ws",
-    nome: "Gabrielle Katayama",
+    nome: "Gabrielle & Gabriel",
     convidados: ["Gabrielle", "Gabriel"],
   },
   {
     id: "jDxrj",
-    nome: "Leticia Katayama",
+    nome: "Leticia & Miguel",
     convidados: ["Leticia", "Miguel"],
   },
   {
@@ -194,6 +194,16 @@ export const convidados: Convidado[] = [
     id: "pR0v9",
     nome: "Felipe Kawakami",
     convidados: ["Felipe"],
+  },
+  {
+    id: "A2S3d",
+    nome: "Iasmin & Matheus",
+    convidados: ["Iasmin", "Matheus"],
+  },
+  {
+    id: "Lo2Id",
+    nome: "Michele & Marcelo",
+    convidados: ["Michele", "Marcelo", "Pietra", "Pedro"],
   },
 ];
 
