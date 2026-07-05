@@ -205,6 +205,11 @@ export const convidados: Convidado[] = [
     nome: "Michele & Marcelo",
     convidados: ["Michele", "Marcelo", "Pietra", "Pedro"],
   },
+  {
+    id: "Poq02",
+    nome: "G",
+    convidados: ["G", "V"],
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

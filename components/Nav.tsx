@@ -53,14 +53,6 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* Desktop CTA */}
-        <a
-          href="/landing"
-          className="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-rose text-cream font-ui text-[11px] tracking-[0.22em] uppercase transition-all duration-300 hover:bg-rose-dark"
-        >
-          Confirmar Presença
-        </a>
-
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((v) => !v)}
@@ -90,15 +82,6 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <div className="px-6 pb-6 pt-2 border-t border-border">
-          <a
-            href="/landing"
-            onClick={close}
-            className="flex items-center justify-center w-full py-4 bg-rose text-cream font-ui text-[11px] tracking-[0.22em] uppercase hover:bg-rose-dark transition-colors"
-          >
-            Confirmar Presença
-          </a>
-        </div>
       </div>
     </nav>
   );

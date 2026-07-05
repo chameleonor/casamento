@@ -6,7 +6,7 @@ import { CalendarBlank, MapPin } from "@phosphor-icons/react/dist/ssr";
 // Substitua pela URL de incorporação do Google Maps:
 // Maps > Compartilhar > Incorporar um mapa > copiar src do iframe
 const MAPS_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7312.881835015385!2d-46.6807391!3d-23.588514999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5744a10b61b7%3A0xe8df26d5ebf3284a!2sR%C3%A1scal%20-%20Itaim!5e0!3m2!1sen!2sbr!4v1782677010067!5m2!1sen!2sbr";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.4409175076926!2d-46.6807391!3d-23.588514999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5744a10b61b7%3A0xe8df26d5ebf3284a!2sR%C3%A1scal%20-%20Itaim!5e0!3m2!1sen!2sbr!4v1783245553640!5m2!1sen!2sbr";
 
 export default function EventDetails() {
   return (
@@ -120,6 +120,20 @@ export default function EventDetails() {
               </div>
             </div>
           </div>
+        </AnimateIn>
+
+        {/* CTA final */}
+        <AnimateIn delay={120} className="mt-20 md:mt-28 text-center">
+          <FloralDivider className="w-52 md:w-64 mx-auto text-blush mb-10" />
+          <p className="font-body text-muted text-lg md:text-xl italic mb-8 max-w-lg mx-auto">
+            Contamos com a sua presença para celebrar esse momento único.
+          </p>
+          <a
+            href="/landing"
+            className="inline-flex items-center justify-center px-14 py-6 bg-rose text-cream font-ui text-sm md:text-base tracking-[0.3em] uppercase transition-all duration-300 hover:bg-rose-dark active:scale-[0.98] shadow-lg"
+          >
+            Confirmar Presença
+          </a>
         </AnimateIn>
 
       </div>

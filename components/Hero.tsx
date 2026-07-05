@@ -50,13 +50,6 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="animate-fade-in-up delay-500 relative z-10 flex flex-col sm:flex-row gap-3 pt-10">
-          <a
-            href="/landing"
-            className="inline-flex items-center justify-center px-6 py-4 bg-rose text-cream font-ui text-[11px] tracking-[0.22em] uppercase transition-all duration-300 hover:bg-rose-dark active:scale-[0.98] min-h-[48px]"
-          >
-            Confirmar Presença
-          </a>
-
           <div className="bg-cream/90 backdrop-blur-sm px-6 py-3 border border-border/60 text-center">
             <p className="text-[22px] text-brown text-sm italic tracking-wide">08.08.2026</p>
           </div>
