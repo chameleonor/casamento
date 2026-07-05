@@ -169,7 +169,29 @@ export default function RSVPConvidado({ convidado }: Props) {
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [checkingStatus, setCheckingStatus] = useState(true);
+  const [jaConfirmado, setJaConfirmado] = useState(false);
   const presentesRef = useRef<HTMLDivElement>(null);
+
+  // Convidados que já responderam não precisam preencher o formulário de novo;
+  // a planilha é a fonte de verdade sobre quem já confirmou.
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch(`/api/rsvp/status?id=${encodeURIComponent(convidado.id)}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!cancelled) setJaConfirmado(Boolean(data.confirmado));
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setCheckingStatus(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [convidado.id]);
 
   // No celular o formulário e a lista de presentes ficam empilhados;
   // depois de confirmar, rola até a lista de presentes para que ela apareça.
@@ -271,17 +293,24 @@ export default function RSVPConvidado({ convidado }: Props) {
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
           {/* Left: RSVP form */}
           <div className="w-full max-w-xl mx-auto md:mx-0">
-            {submitted ? (
-              // ── Success ──────────────────────────────────────────────────
+            {checkingStatus ? (
+              // ── Checking ─────────────────────────────────────────────────
+              <div className="text-center py-14 px-6 border border-border bg-linen">
+                <p className="font-body text-muted text-lg italic">Verificando sua confirmação...</p>
+              </div>
+            ) : submitted || jaConfirmado ? (
+              // ── Success / Already confirmed ─────────────────────────────
               <div className="text-center py-14 px-6 border border-border bg-linen">
                 <CheckCircle size={44} weight="light" className="text-sage mx-auto mb-5" />
                 <h2 className="font-display text-brown text-2xl italic font-light mb-3">
-                  Confirmação recebida!
+                  {submitted ? "Confirmação recebida!" : "Você já confirmou sua presença!"}
                 </h2>
                 <p className="font-body text-muted text-lg italic leading-relaxed max-w-xs mx-auto">
-                  {alguemConfirmou
-                    ? `Recebemos a confirmação de ${totalConfirmados} pessoa${totalConfirmados > 1 ? "s" : ""}. Mal podemos esperar!`
-                    : "Sentiremos sua falta. Obrigado por nos avisar."}
+                  {submitted
+                    ? alguemConfirmou
+                      ? `Recebemos a confirmação de ${totalConfirmados} pessoa${totalConfirmados > 1 ? "s" : ""}. Mal podemos esperar!`
+                      : "Sentiremos sua falta. Obrigado por nos avisar."
+                    : "Já recebemos sua resposta. Se precisar alterar algo, é só falar diretamente com os noivos."}
                 </p>
               </div>
             ) : (
