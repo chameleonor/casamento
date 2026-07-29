@@ -210,6 +210,21 @@ export const convidados: Convidado[] = [
     nome: "G",
     convidados: ["G", "V"],
   },
+  {
+    id: "6777e",
+    nome: "Emerson",
+    convidados: ["Emerson", "Acompanhante", "Acompanhante"],
+  },
+  {
+    id: "ea1ee",
+    nome: "Silvia",
+    convidados: ["Silvia"],
+  },
+  {
+    id: "b09cc",
+    nome: "Guilherme",
+    convidados: ["Guilherme"],
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -217,3 +232,45 @@ export const convidados: Convidado[] = [
 export function getConvidadoById(id: string): Convidado | undefined {
   return convidados.find((c) => c.id === id);
 }
+
+
+// Suely & Fernando Ör - https://casamento-virid-five.vercel.app/landing/ufBTw
+// Leticia & Silvan Mira - https://casamento-virid-five.vercel.app/landing/7MX9f
+// Roseli & Nathan - https://casamento-virid-five.vercel.app/landing/dLq4R
+// Therezinha & Jerson Zampirolli - https://casamento-virid-five.vercel.app/landing/SqMGQ
+// Daniel & Lissa - https://casamento-virid-five.vercel.app/landing/rYuY8
+// Rodrigo Dau - https://casamento-virid-five.vercel.app/landing/FIPi0
+// Edson Katayama - https://casamento-virid-five.vercel.app/landing/Phe7h
+// Mitsue & Rafael Katayama - https://casamento-virid-five.vercel.app/landing/Zq7IR
+// Érica & Claudio Kawakami - https://casamento-virid-five.vercel.app/landing/jsVfR
+// Felipe - https://casamento-virid-five.vercel.app/landing/pR0v9
+// Regina & Edson Kondo - https://casamento-virid-five.vercel.app/landing/S0Njf
+// Valeria & Luis Katayama - https://casamento-virid-five.vercel.app/landing/WL352
+// Julia Iwamoto - https://casamento-virid-five.vercel.app/landing/7KOHa
+// Karina Iwamoto - https://casamento-virid-five.vercel.app/landing/WoPqr
+// Rosa Katayama - https://casamento-virid-five.vercel.app/landing/EzBlu
+// Michelli & Arthur Tamari - https://casamento-virid-five.vercel.app/landing/Fq7MD
+// Audrey & Augusto Isayama - https://casamento-virid-five.vercel.app/landing/JSLtC
+// Luiza & Nelson Fujita - https://casamento-virid-five.vercel.app/landing/nUltd
+// Thiago Fujita - https://casamento-virid-five.vercel.app/landing/t3MV2
+// Isabela Oliveira - https://casamento-virid-five.vercel.app/landing/S7sCN
+// Maria Alice & Rogerio Oliveira - https://casamento-virid-five.vercel.app/landing/R6ceb
+// Byanca & Caio Inácio - https://casamento-virid-five.vercel.app/landing/AHPuB
+
+
+// Tania & Fernando Katayama - https://casamento-virid-five.vercel.app/landing/5oImP
+// Gabrielle Katayama - https://casamento-virid-five.vercel.app/landing/h80ws
+// Leticia Katayama - https://casamento-virid-five.vercel.app/landing/jDxrj
+// Marina & Helio Isayama - https://casamento-virid-five.vercel.app/landing/fAcyT
+// Fernanda & Helio Isayama - https://casamento-virid-five.vercel.app/landing/laB9j
+// Emiko & Fabio Katayama - https://casamento-virid-five.vercel.app/landing/rt5cu
+// Priscila & Luan Bordino - https://casamento-virid-five.vercel.app/landing/hRZ1u
+// Neusa & Marcos Katayama - https://casamento-virid-five.vercel.app/landing/sA4y8
+// Elisa & Eduardo Katayama - https://casamento-virid-five.vercel.app/landing/FMEyH
+// Keyla & Felipe Borodiak - https://casamento-virid-five.vercel.app/landing/EYCNe
+
+
+
+// Raquel & Bruno Andrade - https://casamento-virid-five.vercel.app/landing/1Cu0o
+// Danilo - https://casamento-virid-five.vercel.app/landing/pOQqq
+// Artur Pereira - https://casamento-virid-five.vercel.app/landing/vjrnT
