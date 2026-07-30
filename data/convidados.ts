@@ -228,7 +228,7 @@ export const convidados: Convidado[] = [
   {
     id: "699af",
     nome: "Caio",
-    convidados: ["Caio"],
+    convidados: ["Caio", "Elza"],
   },
 ];
 
