@@ -62,7 +62,7 @@ export default function EventDetails() {
               <div className="flex items-center justify-center gap-2">
                 <MapPin size={14} weight="light" className="text-blush shrink-0" />
                 <p className="font-body text-muted text-lg leading-snug">
-                  R. Leopoldo Couto Magalhães Jr., 1100 — Itaim Bibi, São Paulo
+                  R. Leopoldo Couto Magalhães Júnior, 831 - Itaim Bibi, São Paulo - SP, 04542-011
                 </p>
               </div>
             </div>
