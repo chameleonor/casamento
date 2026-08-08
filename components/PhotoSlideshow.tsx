@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -12,6 +11,7 @@ import {
   Pause,
   Play,
 } from "@phosphor-icons/react";
+import { BranchCorner, LeafSprig } from "./BotanicalSVG";
 
 const PHOTOS = [
   "/images/casamento_tania.jpg",
@@ -114,28 +114,34 @@ export default function PhotoSlideshow() {
       ref={containerRef}
       onMouseMove={bumpControls}
       onTouchStart={bumpControls}
-      className="relative h-screen w-screen overflow-hidden bg-brown"
+      className="relative h-screen w-screen overflow-hidden bg-cream"
     >
-      {/* Slides */}
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={PHOTOS[index]}
-            alt=""
-            fill
-            priority
-            className="object-contain"
-            unoptimized
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Framed photo, centered — occupies 80% of the page */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative w-[80%] h-[80%]">
+          {/* Botanical decorations around the frame */}
+          <BranchCorner className="absolute -top-4 -left-4 w-28 md:w-40 text-blush/55 pointer-events-none z-0" />
+          <BranchCorner flip className="absolute -bottom-4 -right-4 w-28 md:w-40 text-blush/55 pointer-events-none z-0" />
+          <LeafSprig className="absolute -top-3 -right-6 w-10 md:w-14 text-blush/45 pointer-events-none z-0 rotate-[130deg]" />
+          <LeafSprig className="absolute -bottom-3 -left-6 w-10 md:w-14 text-blush/45 pointer-events-none z-0 -rotate-[50deg]" />
+
+          {/* Photo stage — inset from the outer box so the branches above always stay clear of the photo */}
+          <div className="absolute inset-6 md:inset-8">
+            <AnimatePresence mode="sync">
+              <motion.img
+                key={index}
+                src={PHOTOS[index]}
+                alt=""
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 m-auto max-w-full max-h-full object-contain border-[5px] border-blush shadow-[0_10px_40px_rgba(36,24,16,0.15)] z-10"
+              />
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
 
       {/* Controls */}
       <div
@@ -144,14 +150,14 @@ export default function PhotoSlideshow() {
         }`}
       >
         {/* Top bar */}
-        <div className="absolute top-0 inset-x-0 flex items-center justify-between px-6 py-5 bg-linear-to-b from-black/50 to-transparent">
+        <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-6 py-5 bg-linear-to-b from-cream via-cream/80 to-transparent">
           <Link
             href="/"
-            className="font-display text-cream italic text-xl tracking-wide"
+            className="font-display text-rose italic text-xl tracking-wide"
           >
             V &amp; G
           </Link>
-          <p className="font-ui text-cream/80 text-xs tracking-[0.2em]">
+          <p className="font-ui text-muted text-xs tracking-[0.2em]">
             {index + 1} / {total}
           </p>
         </div>
@@ -160,31 +166,31 @@ export default function PhotoSlideshow() {
         <button
           onClick={goPrev}
           aria-label="Foto anterior"
-          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-cream/80 hover:text-cream p-3 min-h-11 min-w-11 flex items-center justify-center"
+          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 text-muted hover:text-rose p-3 min-h-11 min-w-11 flex items-center justify-center"
         >
           <CaretLeft size={28} weight="light" />
         </button>
         <button
           onClick={goNext}
           aria-label="Próxima foto"
-          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 text-cream/80 hover:text-cream p-3 min-h-11 min-w-11 flex items-center justify-center"
+          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 text-muted hover:text-rose p-3 min-h-11 min-w-11 flex items-center justify-center"
         >
           <CaretRight size={28} weight="light" />
         </button>
 
         {/* Bottom bar */}
-        <div className="absolute bottom-0 inset-x-0 flex items-center justify-center gap-6 px-6 py-6 bg-linear-to-t from-black/50 to-transparent">
+        <div className="absolute bottom-0 inset-x-0 z-20 flex items-center justify-center gap-6 px-6 py-6 bg-linear-to-t from-cream via-cream/80 to-transparent">
           <button
             onClick={() => setIsPlaying((p) => !p)}
             aria-label={isPlaying ? "Pausar apresentação" : "Reproduzir apresentação"}
-            className="text-cream/90 hover:text-cream p-3 min-h-11 min-w-11 flex items-center justify-center rounded-full border border-cream/30 hover:border-cream/60 transition-colors"
+            className="text-muted hover:text-rose p-3 min-h-11 min-w-11 flex items-center justify-center rounded-full border border-border hover:border-rose transition-colors"
           >
             {isPlaying ? <Pause size={20} weight="light" /> : <Play size={20} weight="light" />}
           </button>
           <button
             onClick={toggleFullscreen}
             aria-label={isFullscreen ? "Sair da tela cheia" : "Tela cheia"}
-            className="text-cream/90 hover:text-cream p-3 min-h-11 min-w-11 flex items-center justify-center rounded-full border border-cream/30 hover:border-cream/60 transition-colors"
+            className="text-muted hover:text-rose p-3 min-h-11 min-w-11 flex items-center justify-center rounded-full border border-border hover:border-rose transition-colors"
           >
             {isFullscreen ? <ArrowsIn size={20} weight="light" /> : <ArrowsOut size={20} weight="light" />}
           </button>

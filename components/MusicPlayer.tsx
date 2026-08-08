@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { MusicNotes, MusicNotesSimple } from "@phosphor-icons/react";
 
@@ -26,12 +27,16 @@ declare global {
 }
 
 export default function MusicPlayer() {
+  const pathname = usePathname();
+  const hidden = pathname === "/slideshow";
   const playerRef = useRef<YTPlayer | null>(null);
   const unmutedRef = useRef(false);
   const [ready, setReady] = useState(false);
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
+    if (hidden) return;
+
     function unmuteOnFirstInteraction() {
       if (unmutedRef.current || !playerRef.current?.unMute) return;
       unmutedRef.current = true;
@@ -77,7 +82,7 @@ export default function MusicPlayer() {
     return () => {
       events.forEach((ev) => window.removeEventListener(ev, unmuteOnFirstInteraction));
     };
-  }, []);
+  }, [hidden]);
 
   function toggle() {
     if (!playerRef.current?.unMute) return;
@@ -90,6 +95,8 @@ export default function MusicPlayer() {
     }
     setPlaying((p) => !p);
   }
+
+  if (hidden) return null;
 
   return (
     <>
